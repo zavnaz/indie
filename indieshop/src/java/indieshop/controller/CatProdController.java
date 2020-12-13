@@ -28,26 +28,25 @@ public class CatProdController {
 
     @RequestMapping("cat")
     public String listarCatProd(Model model) {
-        model.addAttribute("listarCatProd", catprod.listarCatProd());
+        model.addAttribute("listarCatProd", catprod.listarCategoriaProductos());
       
         return "catprod/listar";
     }
 
     @RequestMapping(value = "crear", method = RequestMethod.GET)
     public String nuevoCatProd(Model model) {
-        model.addAttribute("listarUsuarios", catprod.listarCatProd());
-        model.addAttribute("CatProd", new CategoriaProductos());
+         model.addAttribute("catprod", new CategoriaProductos());
         return "catprod/nuevo";
     }
 
     @RequestMapping(value = "crear", method = RequestMethod.POST)
-    public String insertarCatProd(@ModelAttribute("catprod") CategoriaProductos cat, Model model, RedirectAttributes atributos) {
+    public String insertarCatProd(@ModelAttribute("Catprod") CategoriaProductos cat, Model model, RedirectAttributes atributos) {
         if (catprod.insertarCatProd(cat) > 0) {
             atributos.addFlashAttribute("exito", "Cliente registrado exitosamente");
-            return "redirect:/clientes/cat";
+            return "redirect:/catprod/cat";
         } else {
-            model.addAttribute("listarCatProd", catprod.listarCatProd());
-            model.addAttribute("catprod", cat);
+            model.addAttribute("listarCatProd", catprod.listarCategoriaProductos());
+            model.addAttribute("Catprod", cat);
                        return "catprod/nuevo";
 
         }
@@ -68,7 +67,7 @@ public class CatProdController {
              }
              else
              {
-                 model.addAttribute("listarCatProd", catprod.listarCatProd());
+                 model.addAttribute("listarCatProd", catprod.listarCategoriaProductos());
                  model.addAttribute("catprod", cat);
                  return "catprod/editar";
              }

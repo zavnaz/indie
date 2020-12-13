@@ -6,7 +6,7 @@
 package indieshop.model;
 
 import indieshop.entities.CategoriaProductos;
-import indieshop.entities.Clientes;
+
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -78,7 +78,8 @@ public class CatProdModel {
         }
     }
 
-    public List<CategoriaProductos> listarCatProd() {
+  
+    public List<CategoriaProductos> listarCategoriaProductos() {
         Session ses = factory.openSession();
         try {
             Query consulta = ses.createQuery("SELECT a FROM categoria_productos a");
