@@ -1,7 +1,7 @@
 <%-- 
     Document   : listar
-    Created on : 12-13-2020, 12:12:06 AM
-    Author     : roco_
+    Created on : Dec 13, 2020, 10:13:05 AM
+    Author     : mario
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -14,7 +14,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Categoria Productos Catalogo</title>
+        <title>Proveedores</title>
         <!--
         
         Template 2094 Mason
@@ -22,11 +22,6 @@
         http://www.tooplate.com/view/2094-mason
         
         -->
-        <!-- load stylesheets -->
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400"> <!-- Google web font "Open Sans", https://fonts.google.com/ -->
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/mason/font-awesome-4.7.0/css/font-awesome.min.css">         <!-- Font Awesome, http://fontawesome.io/ -->
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/mason/css/bootstrap.min.css">                               <!-- Bootstrap styles, https://getbootstrap.com/ -->
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/mason/css/tooplate-style.css">                            <!-- Templatemo style -->
 
     </head>
 
@@ -37,31 +32,37 @@
                 <div class="tm-main-content">    
                     <br>
                     <div class="container tm-site-header-container tm-site-header-col">
-                        <a  class="btn btn-dark" href="<s:url value="/catprod/crear"/>">Nueva Categoria</a>
+                        <a  class="btn btn-dark" href="<s:url value="/proveedor/crear"/>">Nuevo Proveedor</a>
                         <br><br>
                         <table class="table table-bordered" id="tabla">
                             <thead class="table-dark table-inverse">
                                 <tr>
-                                    <th>Codigo Categoria</th>
-                                    <th>Nombre Categoria</th>
-                                    <th>Descripcion</th>
+                                    <th>Codigo Proveedor</th>
+                                    <th>Nombre Proveedor</th>
+                                    <th>Correo Proveedor</th>
+                                    <th>Direccion Proveedor</th>
+                                    <th>Telefono</th>
+                                     <th>Ventas Realizadas</th>
                                      <th>Operaciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${listarCatProd}" var="cat">
+                                <c:forEach items="${lp}" var="pro">
                                     <tr>
-                                        <td>${cat.idCat}</td>
-                                        <td>${cat.nomCat}</td>
-                                        <td>${cat.desCat}</td>
+                                        <td>${pro.idProv}</td>
+                                        <td>${pro.nomProv}</td>
+                                        <td>${pro.corProv}</td>
+                                        <td>${pro.dirProv}</td>
+                                        <td>${pro.telProv}</td>
+                                        <td>${pro.numVenProv}</td>
                                         
                                         
                                         <td>
                                             <a class="btn btn-primary"
-                                               href="<s:url value="/catprod/edit/${cat.idCat}"/>">
+                                               href="<s:url value="/proveedor/edit/${pro.idProv}"/>">
                                                 <span class="glyphicon glyphicon-edit"></span>Editar</a>
                                             <a class="btn btn-danger" 
-                                               href="<s:url value="/catprod/delete/${cat.idCat}"/>">
+                                               href="<s:url value="/proveedor/delete/${pro.idProv}"/>">
                                                 <span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                                         </td>
                                     </tr>
@@ -74,11 +75,9 @@
             </div> <!-- container-fluid -->
             <!-- load JS files -->
 
-            <script src="${pageContext.request.contextPath}/assets/mason/js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
-            <script src="${pageContext.request.contextPath}/assets/mason/js/imagesloaded.pkgd.min.js"></script> <!-- https://masonry.desandro.com/ -->
-            <script src="${pageContext.request.contextPath}/assets/mason/js/masonry.pkgd.min.js"></script> <!-- https://masonry.desandro.com/ -->
 
             <!-- Templatemo scripts -->
 
     </body>
 </html>
+

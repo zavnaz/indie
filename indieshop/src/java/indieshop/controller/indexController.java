@@ -20,4 +20,10 @@ public class indexController {
     {
         return"index";
     }
+    
+    @RequestMapping("p")
+    public String pop (Model model)
+    {
+        return"pop";
+    }
 }
