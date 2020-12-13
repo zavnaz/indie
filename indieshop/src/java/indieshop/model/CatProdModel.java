@@ -6,6 +6,7 @@
 package indieshop.model;
 
 import indieshop.entities.CategoriaProductos;
+import indieshop.entities.Clientes;
 
 import java.util.List;
 import org.hibernate.Query;
@@ -18,12 +19,13 @@ import org.hibernate.Transaction;
  * @author roco_
  */
 public class CatProdModel {
-    SessionFactory factory = HibernateUtil.getSessionFactory();
-      public int insertarCatProd(CategoriaProductos catprod) {
+     SessionFactory factory = HibernateUtil.getSessionFactory();
+     public int insertarCatProd(CategoriaProductos clie) {
         Session ses = factory.openSession();
-        try {
+        try { 
+            
             Transaction tran = ses.beginTransaction();
-            ses.save(catprod);
+            ses.save(clie);
             tran.commit();
             ses.close();
             return 1;
@@ -33,11 +35,11 @@ public class CatProdModel {
         }
     }
 
-    public int modificarCatProd(CategoriaProductos catprod) {
+    public int modificarCatProd(CategoriaProductos clie) {
         Session ses = factory.openSession();
         try {
             Transaction tran = ses.beginTransaction();
-            ses.update(catprod);
+            ses.update(clie);
             tran.commit();
             ses.close();
             return 1;
@@ -51,10 +53,10 @@ public class CatProdModel {
         int filasAfectadas = 0;
         Session ses = factory.openSession();
         try {
-            CategoriaProductos catprod = (CategoriaProductos) ses.get(CategoriaProductos.class, id);
-            if (catprod != null) {
+            CategoriaProductos cliente = (CategoriaProductos) ses.get(CategoriaProductos.class, id);
+            if (cliente != null) {
                 Transaction tran = ses.beginTransaction();
-                ses.delete(catprod);
+                ses.delete(cliente);
                 tran.commit();
                 filasAfectadas = 1;
             }
@@ -68,22 +70,20 @@ public class CatProdModel {
     public CategoriaProductos obtenerCatProd(String codigo) {
         Session ses = factory.openSession();
         try {
-            CategoriaProductos catprod = (CategoriaProductos) ses.get(CategoriaProductos.class, codigo);
+            CategoriaProductos clie = (CategoriaProductos) ses.get(CategoriaProductos.class, codigo);
             
             ses.close();
-            return catprod;
+            return clie;
         } catch (Exception e) {
             ses.close();
             return null;
         }
     }
-
-  
-    public List<CategoriaProductos> listarCategoriaProductos() {
+    public List<CategoriaProductos> listarCatProd() {
         Session ses = factory.openSession();
         try {
-            Query consulta = ses.createQuery("SELECT a FROM categoria_productos a");
-            List<CategoriaProductos> lista = consulta.list();
+            Query cat = ses.createQuery("SELECT cat FROM CategoriaProductos cat");
+            List<CategoriaProductos> lista = cat.list();
             ses.close();
             return lista;
         } catch (Exception e) {
@@ -91,6 +91,4 @@ public class CatProdModel {
             return null;
         }
     }
-
-    
 }

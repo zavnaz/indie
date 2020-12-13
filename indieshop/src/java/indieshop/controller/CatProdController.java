@@ -28,7 +28,7 @@ public class CatProdController {
 
     @RequestMapping("cat")
     public String listarCatProd(Model model) {
-        model.addAttribute("listarCatProd", catprod.listarCategoriaProductos());
+        model.addAttribute("listarCatProd", catprod.listarCatProd());
       
         return "catprod/listar";
     }
@@ -45,7 +45,7 @@ public class CatProdController {
             atributos.addFlashAttribute("exito", "Cliente registrado exitosamente");
             return "redirect:/catprod/cat";
         } else {
-            model.addAttribute("listarCatProd", catprod.listarCategoriaProductos());
+            model.addAttribute("listarCatProd", catprod.listarCatProd());
             model.addAttribute("Catprod", cat);
                        return "catprod/nuevo";
 
@@ -67,7 +67,7 @@ public class CatProdController {
              }
              else
              {
-                 model.addAttribute("listarCatProd", catprod.listarCategoriaProductos());
+                 model.addAttribute("listarCatProd", catprod.listarCatProd());
                  model.addAttribute("catprod", cat);
                  return "catprod/editar";
              }
