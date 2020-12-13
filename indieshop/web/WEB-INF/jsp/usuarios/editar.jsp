@@ -77,6 +77,17 @@
                                 <span class="input-group-addon"><span class="glyphicon glyphiconasterisk"></span></span>
                             </div>
                         </div>
+                                 <div class="form-group">
+                            <label for="codigoClie">Tipos </label>
+                            <div class="input-group">
+                              <f:select path="tiposUsuarios.idTu" cssClass="form-control">
+                                <f:options items="${listarTiposUsuarios}" itemLabel="rolTu"
+                                           itemValue="idTu"/>
+                            </f:select>
+                                <span class="input-group-addon"><span class="glyphicon glyphiconasterisk"></span></span>
+                            </div>
+                        </div>
+                                  
                         <f:button class="btn btn-info">Guardar</f:button>
                         <a class="btn btn-danger" href="<s:url
                                value="/usuarios/cat"/>">Cancelar</a>

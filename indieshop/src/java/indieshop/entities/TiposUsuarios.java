@@ -1,10 +1,14 @@
 package indieshop.entities;
-// Generated 12-12-2020 04:09:12 PM by Hibernate Tools 4.3.1
+// Generated 12-13-2020 12:54:23 PM by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -19,6 +23,7 @@ public class TiposUsuarios  implements java.io.Serializable {
 
      private String idTu;
      private String rolTu;
+     private Set<Usuarios> usuarioses = new HashSet<Usuarios>(0);
 
     public TiposUsuarios() {
     }
@@ -27,9 +32,10 @@ public class TiposUsuarios  implements java.io.Serializable {
     public TiposUsuarios(String idTu) {
         this.idTu = idTu;
     }
-    public TiposUsuarios(String idTu, String rolTu) {
+    public TiposUsuarios(String idTu, String rolTu, Set<Usuarios> usuarioses) {
        this.idTu = idTu;
        this.rolTu = rolTu;
+       this.usuarioses = usuarioses;
     }
    
      @Id 
@@ -52,6 +58,15 @@ public class TiposUsuarios  implements java.io.Serializable {
     
     public void setRolTu(String rolTu) {
         this.rolTu = rolTu;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="tiposUsuarios")
+    public Set<Usuarios> getUsuarioses() {
+        return this.usuarioses;
+    }
+    
+    public void setUsuarioses(Set<Usuarios> usuarioses) {
+        this.usuarioses = usuarioses;
     }
 
 

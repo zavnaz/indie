@@ -51,9 +51,9 @@
                     <div class="form-group">
                         <label for="codigoUsu">Usuario</label>
                         <div class="input-group">
-                            <f:select path="usuarios.idUs" cssClass="form-control">
-                                <f:options items="${listarUsuarios}" itemLabel="nomUs"
-                                           itemValue="idUs"/>
+                            <f:select path="usuarios.tiposUsuarios" cssClass="form-control">
+                                <f:options items="${listarTiposUsuarios}" itemLabel="rolTu"
+                                           itemValue="idTu"/>
                             </f:select>
                             <span class="input-group-addon"><span class="glyphicon glyphiconasterisk"></span></span>
                         </div>

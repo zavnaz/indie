@@ -1,5 +1,5 @@
 package indieshop.entities;
-// Generated 12-12-2020 04:09:12 PM by Hibernate Tools 4.3.1
+// Generated 12-13-2020 12:54:23 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -8,6 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,6 +24,7 @@ public class Usuarios  implements java.io.Serializable {
 
 
      private String idUs;
+     private TiposUsuarios tiposUsuarios;
      private String nomUs;
      private String apeUs;
      private String nicUs;
@@ -35,8 +38,9 @@ public class Usuarios  implements java.io.Serializable {
     public Usuarios(String idUs) {
         this.idUs = idUs;
     }
-    public Usuarios(String idUs, String nomUs, String apeUs, String nicUs, String passUs, Set<Clientes> clienteses) {
+    public Usuarios(String idUs, TiposUsuarios tiposUsuarios, String nomUs, String apeUs, String nicUs, String passUs, Set<Clientes> clienteses) {
        this.idUs = idUs;
+       this.tiposUsuarios = tiposUsuarios;
        this.nomUs = nomUs;
        this.apeUs = apeUs;
        this.nicUs = nicUs;
@@ -54,6 +58,16 @@ public class Usuarios  implements java.io.Serializable {
     
     public void setIdUs(String idUs) {
         this.idUs = idUs;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="id_tu")
+    public TiposUsuarios getTiposUsuarios() {
+        return this.tiposUsuarios;
+    }
+    
+    public void setTiposUsuarios(TiposUsuarios tiposUsuarios) {
+        this.tiposUsuarios = tiposUsuarios;
     }
 
     

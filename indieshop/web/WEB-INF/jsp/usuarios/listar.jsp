@@ -47,6 +47,7 @@
                                     <th>Apellido Usuario</th>
                                     <th>Nickname</th>
                                     <th>Password</th>
+                                    <th>Tipo Usuario</th>
                                     <th>Operaciones</th>
                                 </tr>
                             </thead>
@@ -58,6 +59,7 @@
                                         <td>${usuarios.apeUs}</td>
                                         <td>${usuarios.nicUs}</td>
                                         <td>${usuarios.passUs}</td>
+                                        <td>${usuarios.tiposUsuarios.rolTu}</td>
                                         <td>
                                             <a class="btn btn-primary"
                                                href="<s:url value="/usuarios/edit/${usuarios.idUs}"/>">

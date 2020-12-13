@@ -7,6 +7,7 @@ package indieshop.controller;
 
 import indieshop.entities.Clientes;
 import indieshop.model.ClientesModel;
+import indieshop.model.TipoUsuarioModel;
 import indieshop.model.UsuariosModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +29,7 @@ public class ClientesController {
       
   ClientesModel clientesModel = new ClientesModel();
   UsuariosModel usuariosModel = new UsuariosModel();
+  TipoUsuarioModel tipoUsuarioModel = new TipoUsuarioModel();
 
     @RequestMapping("cat")
     public String listarClientes(Model model) {
@@ -38,7 +40,7 @@ public class ClientesController {
 
     @RequestMapping(value = "crear", method = RequestMethod.GET)
     public String nuevoClientes(Model model) {
-        model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
+        model.addAttribute("listarTiposUsuarios", tipoUsuarioModel.listarTiposUsuario());
         model.addAttribute("clientes", new Clientes());
         return "clientes/nuevo";
     }
@@ -49,6 +51,7 @@ public class ClientesController {
             atributos.addFlashAttribute("exito", "Cliente registrado exitosamente");
             return "redirect:/clientes/cat";
         } else {
+            model.addAttribute("listarTiposUsuarios", tipoUsuarioModel.listarTiposUsuario());
             model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
             model.addAttribute("clientes", clie);
                        return "clientes/nuevo";

@@ -53,7 +53,7 @@
                                 <c:forEach items="${listarClientes}" var="clientes">
                                     <tr>
                                         <td>${clientes.idCli}</td>
-                                        <td>${clientes.usuarios.nomUs}</td>
+                                        <td>${clientes.usuarios.tiposUsuarios.rolTu}</td>
                                         <td>${clientes.dirCli}</td>
                                         <td>${clientes.telCli}</td>
                                         <td>${clientes.corCli}</td>

@@ -8,6 +8,7 @@ package indieshop.controller;
 import indieshop.entities.Clientes;
 import indieshop.entities.Usuarios;
 import indieshop.model.ClientesModel;
+import indieshop.model.TipoUsuarioModel;
 import indieshop.model.UsuariosModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +29,7 @@ public class UsuariosController {
           
   ClientesModel clientesModel = new ClientesModel();
   UsuariosModel usuariosModel = new UsuariosModel();
+  TipoUsuarioModel tipoUsuarioModel = new TipoUsuarioModel();
 
     @RequestMapping("cat")
     public String listarUsuarios(Model model) {
@@ -37,6 +39,7 @@ public class UsuariosController {
 
     @RequestMapping(value = "crear", method = RequestMethod.GET)
     public String nuevoUsuarios(Model model) {
+        model.addAttribute("listarTiposUsuarios", tipoUsuarioModel.listarTiposUsuario());
         model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
         model.addAttribute("usuarios", new Usuarios());
         return "usuarios/nuevo";
