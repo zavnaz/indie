@@ -25,7 +25,7 @@
                             </li>
                             <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/usuarios/cat" class="tm-nav-item-link tm-button">Usuarios</a>
                             </li>
-                            <li class="tm-nav-item"><a href="contact.html" class="tm-nav-item-link tm-button">Valoracion</a>
+                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/valoracion/cat" class="tm-nav-item-link tm-button">Valoracion</a>
                             </li>
                         </ul>
                     </nav>

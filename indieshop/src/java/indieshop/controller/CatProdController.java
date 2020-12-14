@@ -39,7 +39,7 @@ public class CatProdController {
     }
 
     @RequestMapping(value = "crear", method = RequestMethod.POST)
-    public String insertarCatProd(@ModelAttribute("Catprod") CategoriaProductos cat, Model model, RedirectAttributes atributos) {
+    public String insertarCatProd(@ModelAttribute("catprod") CategoriaProductos cat, Model model, RedirectAttributes atributos) {
         if (catprod.insertarCatProd(cat) > 0) {
             atributos.addFlashAttribute("exito", "Cliente registrado exitosamente");
             return "redirect:/catprod/cat";

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : cat_clie
-    Created on : 12-12-2020, 04:36:20 PM
+    Document   : listar
+    Created on : 12-13-2020, 05:46:58 PM
     Author     : roco_
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -13,7 +13,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Clientes Catalogo</title>
+        <title>Categoria Productos Catalogo</title>
         <!--
         
         Template 2094 Mason
@@ -36,33 +36,34 @@
                 <div class="tm-main-content">    
                     <br>
                     <div class="container tm-site-header-container tm-site-header-col">
-                        <a  class="btn btn-dark" href="<s:url value="/clientes/crear"/>">Nuevo Cliente</a>
+                        <a  class="btn btn-dark" href="<s:url value="/catprod/crear"/>">Nueva Valoracion</a>
                         <br><br>
                         <table class="table table-bordered" id="tabla">
                             <thead class="table-dark table-inverse">
                                 <tr>
-                                    <th>Codigo</th>
-                                    <th>Usuario</th>
-                                    <th>Direccion</th>
-                                    <th>Telefono</th>
-                                    <th>Correo</th>
-                                    <th>Operaciones</th>
+                                    <th>Codigo Valoracion</th>
+                                    <th>Cliente</th>
+                                    <th>Nombre Empresa</th>
+                                     <th>Valoracion</th>
+                                     <th>Comentarios</th>
+                                     <th>Operaciones</th>
+                                     
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${listarClientes}" var="clientes">
+                                <c:forEach items="${listarValoracion}" var="cat">
                                     <tr>
-                                        <td>${clientes.idCli}</td>
-                                        <td>${clientes.usuarios.nicUs}</td>
-                                        <td>${clientes.dirCli}</td>
-                                        <td>${clientes.telCli}</td>
-                                        <td>${clientes.corCli}</td>
+                                        <td>${cat.idVal}</td>
+                                        <td>${cat.clientes.idCli}</td>
+                                        <td>${cat.proveedores.nomProv}</td>
+                                        <td>${cat.calVal}</td>
+                                        <td>${cat.comVal}</td>
+                                        
+                                        
                                         <td>
-                                            <a class="btn btn-primary"
-                                               href="<s:url value="/valoracion/edit/${clientes.idCli}"/>">
-                                                <span class="glyphicon glyphicon-edit"></span>Editar</a>
+                                            
                                             <a class="btn btn-danger" 
-                                               href="<s:url value="/clientes/delete/${clientes.idCli}"/>">
+                                               href="<s:url value="/valoracion/delete/${cat.idVal}"/>">
                                                 <span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                                         </td>
                                     </tr>
@@ -83,3 +84,4 @@
 
     </body>
 </html>
+

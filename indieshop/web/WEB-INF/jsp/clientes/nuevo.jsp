@@ -51,9 +51,9 @@
                     <div class="form-group">
                         <label for="codigoUsu">Usuario</label>
                         <div class="input-group">
-                            <f:select path="usuarios.tiposUsuarios" cssClass="form-control">
-                                <f:options items="${listarTiposUsuarios}" itemLabel="rolTu"
-                                           itemValue="idTu"/>
+                            <f:select path="usuarios.idUs" cssClass="form-control">
+                                <f:options items="${listarUsuarios}" itemLabel="nicUs"
+                                           itemValue="idUs"/>
                             </f:select>
                             <span class="input-group-addon"><span class="glyphicon glyphiconasterisk"></span></span>
                         </div>
@@ -61,7 +61,7 @@
                     <div class="form-group">
                         <label for="codigoClie">Direccion</label>
                         <div class="input-group">
-                            <f:input path="dirCli" cssClass="form-control"/>
+                            <f:input path="dirCli" cssClass="form-control"/> 
                             <span class="input-group-addon"><span class="glyphicon glyphiconasterisk"></span></span>
                         </div>
                     </div>
@@ -82,6 +82,8 @@
                     <f:button class="btn btn-info">Guardar</f:button>
                     <a class="btn btn-danger" href="<s:url
                            value="/clientes/cat"/>">Cancelar</a>
+                    
+                   
                 </f:form>
             </div>
         </div>
