@@ -78,7 +78,7 @@
                             </div>
                         </div>
                                  <div class="form-group">
-                            <label for="codigoClie">Tipos </label>
+                            <label for="codigoClie">Tipos de Usuario </label>
                             <div class="input-group">
                               <f:select path="tiposUsuarios.idTu" cssClass="form-control">
                                 <f:options items="${listarTiposUsuarios}" itemLabel="rolTu"

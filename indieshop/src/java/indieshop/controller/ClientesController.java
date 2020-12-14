@@ -40,7 +40,7 @@ public class ClientesController {
 
     @RequestMapping(value = "crear", method = RequestMethod.GET)
     public String nuevoClientes(Model model) {
-        model.addAttribute("listarTiposUsuarios", tipoUsuarioModel.listarTiposUsuario());
+        model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
         model.addAttribute("clientes", new Clientes());
         return "clientes/nuevo";
     }
@@ -62,7 +62,8 @@ public class ClientesController {
          public String obtenerCliente(@PathVariable("codigo") String codigo, Model model)
          {
              model.addAttribute("clientes", clientesModel.obtenerClientes(codigo));
-             model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
+            model.addAttribute("listarTiposUsuarios", tipoUsuarioModel.listarTiposUsuario());
+            model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
              return "clientes/editar";
          }
          @RequestMapping (value = "edit/{codigo}", method = RequestMethod.POST)

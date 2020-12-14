@@ -34,6 +34,7 @@ public class UsuariosController {
     @RequestMapping("cat")
     public String listarUsuarios(Model model) {
         model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
+         model.addAttribute("listarTiposUsuarios", tipoUsuarioModel.listarTiposUsuario());
         return "usuarios/listar";
     }
 
@@ -52,6 +53,7 @@ public class UsuariosController {
             return "redirect:/usuarios/cat";
         } else {
             model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
+             model.addAttribute("listarTiposUsuarios", tipoUsuarioModel.listarTiposUsuario());
             model.addAttribute("usuarios", usuario);
                        return "usuarios/nuevo";
 
@@ -61,6 +63,7 @@ public class UsuariosController {
          public String obtenerUsuarios(@PathVariable("codigo") String codigo, Model model)
          {
              model.addAttribute("usuarios", usuariosModel.obtenerUsuarios(codigo));
+              model.addAttribute("listarTiposUsuarios", tipoUsuarioModel.listarTiposUsuario());
              model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
              return "usuarios/editar";
          }
@@ -73,6 +76,7 @@ public class UsuariosController {
              }
              else
              {
+                  model.addAttribute("listarTiposUsuarios", tipoUsuarioModel.listarTiposUsuario());
                  model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
                  model.addAttribute("usuarios", usuario);
                  return "usuarios/editar";

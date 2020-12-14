@@ -80,7 +80,8 @@
                                <div class="form-group">
                         <label for="codigoClie">Tipo Usuario</label>
                         <div class="input-group">
-                              <f:select path="usuarios.tiposUsuarios.idTu" cssClass="form-control">
+                              
+                             <f:select path="tiposUsuarios.idTu" cssClass="form-control">
                                 <f:options items="${listarTiposUsuarios}" itemLabel="rolTu"
                                            itemValue="idTu"/>
                             </f:select>
