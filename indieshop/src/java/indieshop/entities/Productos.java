@@ -1,5 +1,5 @@
 package indieshop.entities;
-// Generated 12-13-2020 12:54:23 PM by Hibernate Tools 4.3.1
+// Generated Dec 13, 2020 5:51:47 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -28,6 +28,7 @@ public class Productos  implements java.io.Serializable {
      private Proveedores proveedores;
      private String nomPro;
      private String desLib;
+     private String imgPro;
      private Double precioPro;
      private Integer exiPro;
      private Set<ProductosFactura> productosFacturas = new HashSet<ProductosFactura>(0);
@@ -39,12 +40,13 @@ public class Productos  implements java.io.Serializable {
     public Productos(String idPro) {
         this.idPro = idPro;
     }
-    public Productos(String idPro, CategoriaProductos categoriaProductos, Proveedores proveedores, String nomPro, String desLib, Double precioPro, Integer exiPro, Set<ProductosFactura> productosFacturas) {
+    public Productos(String idPro, CategoriaProductos categoriaProductos, Proveedores proveedores, String nomPro, String desLib, String imgPro, Double precioPro, Integer exiPro, Set<ProductosFactura> productosFacturas) {
        this.idPro = idPro;
        this.categoriaProductos = categoriaProductos;
        this.proveedores = proveedores;
        this.nomPro = nomPro;
        this.desLib = desLib;
+       this.imgPro = imgPro;
        this.precioPro = precioPro;
        this.exiPro = exiPro;
        this.productosFacturas = productosFacturas;
@@ -100,6 +102,16 @@ public class Productos  implements java.io.Serializable {
     
     public void setDesLib(String desLib) {
         this.desLib = desLib;
+    }
+
+    
+    @Column(name="img_pro", length=100)
+    public String getImgPro() {
+        return this.imgPro;
+    }
+    
+    public void setImgPro(String imgPro) {
+        this.imgPro = imgPro;
     }
 
     

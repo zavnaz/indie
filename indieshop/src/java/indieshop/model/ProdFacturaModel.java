@@ -5,7 +5,7 @@
  */
 package indieshop.model;
 
-import indieshop.entities.Clientes;
+import indieshop.entities.ProductosFactura;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -14,15 +14,17 @@ import org.hibernate.Transaction;
 
 /**
  *
- * @author roco_
+ * @author mario
  */
-public class ClientesModel {
+public class ProdFacturaModel {
+    
     SessionFactory factory = HibernateUtil.getSessionFactory();
-      public int insertarClientes(Clientes clie) {
+     
+    public int insertarProdFactura(ProductosFactura fac) {
         Session ses = factory.openSession();
         try {
             Transaction tran = ses.beginTransaction();
-            ses.save(clie);
+            ses.save(fac);
             tran.commit();
             ses.close();
             return 1;
@@ -30,30 +32,17 @@ public class ClientesModel {
             ses.close();
             return 0;
         }
-    }
-
-    public int modificarClientes(Clientes clie) {
-        Session ses = factory.openSession();
-        try {
-            Transaction tran = ses.beginTransaction();
-            ses.update(clie);
-            tran.commit();
-            ses.close();
-            return 1;
-        } catch (Exception e) {
-            ses.close();
-            return 0;
-        }
-    }
-
-    public int eliminarClientes(String id) {
+    } 
+    
+    
+    public int eliminarProdFacturas(String id) {
         int filasAfectadas = 0;
         Session ses = factory.openSession();
         try {
-            Clientes cliente = (Clientes) ses.get(Clientes.class, id);
-            if (cliente != null) {
+            ProductosFactura fac = (ProductosFactura) ses.get(ProductosFactura.class, id);
+            if (fac != null) {
                 Transaction tran = ses.beginTransaction();
-                ses.delete(cliente);
+                ses.delete(fac);
                 tran.commit();
                 filasAfectadas = 1;
             }
@@ -64,24 +53,13 @@ public class ClientesModel {
             return filasAfectadas;
         }
     }
-    public Clientes obtenerClientes(String codigo) {
-        Session ses = factory.openSession();
-        try {
-            Clientes clie = (Clientes) ses.get(Clientes.class, codigo);
-            
-            ses.close();
-            return clie;
-        } catch (Exception e) {
-            ses.close();
-            return null;
-        }
-    }
 
-    public List<Clientes> listarClientes() {
+
+    public List<ProductosFactura> listarProdFactura(String id) {
         Session ses = factory.openSession();
         try {
-            Query consulta = ses.createQuery("SELECT a FROM clientes a");
-            List<Clientes> lista = consulta.list();
+            Query consulta = ses.createQuery("SELECT a FROM ProductosFactura a where facturacion.idFac="+id);
+            List<ProductosFactura> lista = consulta.list();
             ses.close();
             return lista;
         } catch (Exception e) {

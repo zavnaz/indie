@@ -1,9 +1,10 @@
 <div class="tm-sidebar sticky">
                     <section id="welcome" >
                         <div class="tm-banner-inner">
-                            <i class="fas fa-bookmark fa-5x margin-b-40"></i>
+                            
                             <h1 class="tm-banner-title">Indie shop</h1>
-                            <p class="tm-banner-subtitle">Encuentras todo a bajo precio!!</p>                   
+                            <p class="tm-banner-subtitle">Encuentras todo a bajo precio!!</p> 
+                            
                         </div>                    
                     </section>
                     <nav class="tm-main-nav">

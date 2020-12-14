@@ -83,7 +83,7 @@ public class UsuariosModel {
     public List<Usuarios> listarUsuarios() {
         Session ses = factory.openSession();
         try {
-            Query consulta = ses.createQuery("SELECT a FROM Usuarios a");
+            Query consulta = ses.createQuery("SELECT a FROM usuarios a");
             List<Usuarios> lista = consulta.list();
             ses.close();
             return lista;

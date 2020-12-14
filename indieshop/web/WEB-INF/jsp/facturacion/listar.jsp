@@ -1,6 +1,6 @@
 <%-- 
     Document   : listar
-    Created on : Dec 13, 2020, 10:13:05 AM
+    Created on : Dec 13, 2020, 11:39:35 PM
     Author     : mario
 --%>
 
@@ -14,7 +14,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Proveedores</title>
+        <title>Productos</title>
         <!--
         
         Template 2094 Mason
@@ -32,39 +32,30 @@
                 <div class="tm-main-content">    
                     <br>
                     <div class="container tm-site-header-container tm-site-header-col">
-                        <a  class="btn btn-dark" href="<s:url value="/proveedor/crear"/>">Nuevo Proveedor</a>
-                        <h3>${nn}</h3>
                         <br><br>
                         <table class="table table-bordered" id="tabla">
                             <thead class="table-dark table-inverse">
                                 <tr>
-                                    <th>Codigo Proveedor</th>
-                                    <th>Nombre Proveedor</th>
-                                    <th>Correo Proveedor</th>
-                                    <th>Direccion Proveedor</th>
-                                    <th>Telefono</th>
-                                     <th>Ventas Realizadas</th>
-                                     <th>Operaciones</th>
+                                    <th>Codigo</th>
+                                    <th>cliente</th>
+                                    <th>Total</th>
+                                    <th>Pagada</th>
+                                     <th>Ver</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${lp}" var="pro">
+                                <c:forEach items="${lf}" var="pro">
                                     <tr>
-                                        <td>${pro.idProv}</td>
-                                        <td>${pro.nomProv}</td>
-                                        <td>${pro.corProv}</td>
-                                        <td>${pro.dirProv}</td>
-                                        <td>${pro.telProv}</td>
-                                        <td>${pro.numVenProv}</td>
+                                        <td>${pro.idFac}</td>
+                                        <td>${pro.clientes.idCli}</td>
+                                        <td>${pro.totFac}</td>
+                                        <td>${pro.pagada}</td>
                                         
                                         
                                         <td>
                                             <a class="btn btn-primary"
-                                               href="<s:url value="/proveedor/edit/${pro.idProv}"/>">
+                                               href="<s:url value="/prodfactura/prfac/${pro.idFac}"/>">
                                                 <span class="glyphicon glyphicon-edit"></span>Editar</a>
-                                            <a class="btn btn-danger" 
-                                               href="<s:url value="/proveedor/delete/${pro.idProv}"/>">
-                                                <span class="glyphicon glyphicon-trash"></span>Eliminar</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -81,4 +72,5 @@
 
     </body>
 </html>
+
 

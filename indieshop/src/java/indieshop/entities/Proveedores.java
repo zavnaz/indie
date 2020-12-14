@@ -1,5 +1,5 @@
 package indieshop.entities;
-// Generated 12-13-2020 12:54:23 PM by Hibernate Tools 4.3.1
+// Generated Dec 13, 2020 5:51:47 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

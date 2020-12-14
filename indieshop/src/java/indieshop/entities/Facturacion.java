@@ -1,5 +1,5 @@
 package indieshop.entities;
-// Generated 12-13-2020 12:54:23 PM by Hibernate Tools 4.3.1
+// Generated Dec 13, 2020 5:51:47 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -26,6 +26,7 @@ public class Facturacion  implements java.io.Serializable {
      private String idFac;
      private Clientes clientes;
      private Double totFac;
+     private Boolean pagada;
      private Set<ProductosFactura> productosFacturas = new HashSet<ProductosFactura>(0);
 
     public Facturacion() {
@@ -35,10 +36,11 @@ public class Facturacion  implements java.io.Serializable {
     public Facturacion(String idFac) {
         this.idFac = idFac;
     }
-    public Facturacion(String idFac, Clientes clientes, Double totFac, Set<ProductosFactura> productosFacturas) {
+    public Facturacion(String idFac, Clientes clientes, Double totFac, Boolean pagada, Set<ProductosFactura> productosFacturas) {
        this.idFac = idFac;
        this.clientes = clientes;
        this.totFac = totFac;
+       this.pagada = pagada;
        this.productosFacturas = productosFacturas;
     }
    
@@ -72,6 +74,16 @@ public class Facturacion  implements java.io.Serializable {
     
     public void setTotFac(Double totFac) {
         this.totFac = totFac;
+    }
+
+    
+    @Column(name="pagada")
+    public Boolean getPagada() {
+        return this.pagada;
+    }
+    
+    public void setPagada(Boolean pagada) {
+        this.pagada = pagada;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="facturacion")

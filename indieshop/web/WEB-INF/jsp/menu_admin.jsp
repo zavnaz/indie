@@ -10,14 +10,16 @@
       </style>
                             <h1 class="tm-banner-title">Indie Shop</h1>
                             <i class=" fa fa-television custom" ></i>
-                            <p class="tm-banner-subtitle">Los mejores equipos y bajos precios</p>                   
+                            <p class="tm-banner-subtitle">Los mejores equipos y bajos precios</p> 
+                            <i class=" fa fa-shopping-cart fa-1x" ></i>
+                            
                         </div>                    
                     </section>
                     <nav class="tm-main-nav">
                         <ul class="tm-main-nav-ul">
-                            <li class="tm-nav-item"><a href="" class="tm-nav-item-link tm-button">Inicio</a>
+                            <li class="tm-nav-item"><a href="inicio" class="tm-nav-item-link tm-button">Inicio</a>
                             </li>
-                            <li class="tm-nav-item"><a href="timeline.html" class="tm-nav-item-link tm-button">Productos</a>
+                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/productos/prod" class="tm-nav-item-link tm-button">Productos</a>
                             </li>
                             <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/clientes/cat" class="tm-nav-item-link tm-button">Clientes</a>
                             </li>

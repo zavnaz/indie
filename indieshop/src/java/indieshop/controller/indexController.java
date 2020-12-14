@@ -8,7 +8,7 @@ package indieshop.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author roco_
@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class indexController {
        @RequestMapping("inicio")
-    public String inicio (Model model)
+    public String inicio (Model model, HttpSession ucli)
     {
+        ucli.setAttribute("uid", "1");
         return"index";
     }
     

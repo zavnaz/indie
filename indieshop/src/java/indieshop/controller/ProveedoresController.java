@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author mario
@@ -28,8 +29,10 @@ public class ProveedoresController {
      ProveedorModel proveedor = new ProveedorModel();
 
     @RequestMapping("prov")
-    public String listarProveedor(Model model) {
+    public String listarProveedor(Model model,HttpSession ucli) {
+        String n=(String) ucli.getAttribute("uc");
         model.addAttribute("lp", proveedor.listarProveedor());
+        model.addAttribute("nn",n);
       
         return "proveedor/listar";
     }
