@@ -33,6 +33,7 @@ public class ClientesController {
 
     @RequestMapping("cat")
     public String listarClientes(Model model) {
+       
         model.addAttribute("listarClientes", clientesModel.listarClientes());
       
         return "clientes/cat_clie";
