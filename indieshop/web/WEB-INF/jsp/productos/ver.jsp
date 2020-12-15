@@ -84,9 +84,8 @@
                         <img class="tm-img" src="${pageContext.request.contextPath}/assets/img/${pro.imgPro}.jpg" alt="Image">
                     
 
-                    <f:button class="btn btn-info">Guardar</f:button>
-                    <a class="btn btn-danger" href="<s:url
-                           value="/productos/prod"/>">Cancelar</a>
+                    <f:button class="btn btn-info">Agregar</f:button>
+
                 </f:form>
             </div>
         </div>

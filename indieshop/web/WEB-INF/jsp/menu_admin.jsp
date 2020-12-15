@@ -12,7 +12,7 @@
                             <a href="${pageContext.request.contextPath}/inicio"><i class=" fa fa-television custom" ></i></a>
                             <p class="tm-banner-subtitle">Los mejores equipos y bajos precios</p> 
                             <i class=" fa fa-shopping-cart fa-1x" ></i>
-                            <p>${nomUsua},${idCli.getIdCli()}</p>
+                            <p>${nomUsua},${idFac.getIdFac()}</p>
                             
                         </div>                    
                     </section>

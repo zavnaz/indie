@@ -5,8 +5,11 @@
  */
 package indieshop.controller;
 
+import indieshop.entities.Facturacion;
 import indieshop.entities.Productos;
 import indieshop.model.ProductosModel;
+import indieshop.entities.ProductosFactura;
+import indieshop.model.ProdFacturaModel;
 import indieshop.model.CatProdModel;
 import indieshop.model.ProveedorModel;
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author mario
@@ -29,6 +34,7 @@ public class ProductosController {
     ProductosModel producto = new ProductosModel();
     CatProdModel categoria= new CatProdModel();
     ProveedorModel proveedor= new ProveedorModel();
+    ProdFacturaModel profac=new ProdFacturaModel();
     
     @RequestMapping("prod")
     public String listarProducto(Model model) {
@@ -100,9 +106,19 @@ public class ProductosController {
          @RequestMapping (value = "verpro/{codigo}", method = RequestMethod.GET)
          public String verProducto(@PathVariable("codigo") String codigo, Model model)
          {
+             
              model.addAttribute("producto", producto.obtenerProductos(codigo));
              
              return "productos/ver";
+         }
+         @RequestMapping (value = "verpro/{codigo}", method = RequestMethod.POST)
+         public String Productofac(Productos prod, Model model, 
+                 RedirectAttributes atributos,HttpSession ucli)
+         {
+             
+             profac.insertarProdFactura((Facturacion)ucli.getAttribute("idFac"), prod);
+             model.addAttribute("lp", producto.listarProductos());
+             return "productos/listarcli";
          }
     
 }

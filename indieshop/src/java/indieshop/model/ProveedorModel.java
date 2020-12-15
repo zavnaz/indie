@@ -23,6 +23,11 @@ public class ProveedorModel {
       public int insertarProveedor(Proveedores proveedor) {
         Session ses = factory.openSession();
         try {
+            Query consulta = ses.createQuery("SELECT a FROM Proveedores a order by idProv desc");
+            List<Proveedores> lista = consulta.list();
+            int i= Integer.parseInt(lista.get(0).getIdProv());
+            i++;
+            proveedor.setIdProv(Integer.toString(i));
             Transaction tran = ses.beginTransaction();
             ses.save(proveedor);
             tran.commit();

@@ -6,6 +6,8 @@
 package indieshop.model;
 
 import indieshop.entities.ProductosFactura;
+import indieshop.entities.Productos;
+import indieshop.entities.Facturacion;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -20,9 +22,23 @@ public class ProdFacturaModel {
     
     SessionFactory factory = HibernateUtil.getSessionFactory();
      
-    public int insertarProdFactura(ProductosFactura fac) {
+    public int insertarProdFactura(Facturacion idf,Productos idp)//ProductosFactura fac
+    {
+        ProductosFactura fac=new ProductosFactura();
+        FacturacionModel mfac= new FacturacionModel();
         Session ses = factory.openSession();
         try {
+            Query consulta = ses.createQuery("SELECT a FROM ProductosFactura a order by idPfac desc");
+            List<ProductosFactura> lista = consulta.list();
+            int i= Integer.parseInt(lista.get(0).getIdPfac());
+            i++;
+            fac.setIdPfac(Integer.toString(i));
+            fac.setFacturacion(idf);
+            fac.setProductos(idp);
+            fac.setCantidadPfac(1);
+            fac.setTotPfac(idp.getPrecioPro());
+            idf.setTotFac(idf.getTotFac()+idp.getPrecioPro());
+            int n= mfac.modificarFactura(idf);
             Transaction tran = ses.beginTransaction();
             ses.save(fac);
             tran.commit();

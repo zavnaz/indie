@@ -26,13 +26,11 @@ public class UsuariosModel {
      public int insertarUsuarios(Usuarios usu) {
         Session ses = factory.openSession();
         try {
-            Query consulta;// = ses.createQuery("SELECT MAX(idUs) FROM Usuarios a");
-            //Usuarios nu= (Usuarios) consulta;
-            //int i=Integer.parseInt(consulta);
-            //i++;
-           
-            //CriteriaQuery<Number>=consulta.cre
-            //.setIdUs(Integer.toString(i));
+            Query consulta = ses.createQuery("SELECT a FROM Usuarios a order by idUs desc");
+            List<Usuarios> lista = consulta.list();
+            int i= Integer.parseInt(lista.get(0).getIdUs());
+            i++;
+            usu.setIdUs(Integer.toString(i));
             Transaction tran = ses.beginTransaction();
             ses.save(usu);
             tran.commit();
@@ -114,4 +112,27 @@ public class UsuariosModel {
             return null;
         }
     }
+    
+    public int ObtenerId()
+        {
+            Session ses = factory.openSession();
+        try {
+            Query consulta = ses.createQuery("SELECT a FROM Usuarios a order by idUs desc");
+            List<Usuarios> lista = consulta.list();
+            int i= Integer.parseInt(lista.get(0).getIdUs());
+            i++;
+            ses.close();
+            return i;
+        } catch (Exception e) {
+            ses.close();
+            return 0;
+        }
+        }
+    //Query consulta = ses.createQuery("SELECT MAX(idUs) FROM Usuarios a");
+            //Usuarios nu= (Usuarios) consulta;
+            //int i=Integer.parseInt(consulta);
+            //i++;
+           
+            //CriteriaQuery<Number>=consulta.cre
+            //.setIdUs(Integer.toString(i));
 }

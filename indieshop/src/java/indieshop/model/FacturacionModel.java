@@ -23,27 +23,39 @@ public class FacturacionModel
      
     SessionFactory factory = HibernateUtil.getSessionFactory();
      
-    public int insertarFactura(HttpSession f) {
+    public Facturacion insertarFactura(Clientes cl) {
         
         Facturacion fac= new Facturacion();
-        
+        int i=0;
         Session ses = factory.openSession();
+        
         try {
-            Query consulta = ses.createQuery("SELECT FROM Facturacion order by idFac desc limit 1");
-            double i=Double.parseDouble(consulta.toString());
+            //Query con = ses.createQuery("SELECT a FROM Facturacion a where clientes.idCli='"+cl.getIdCli()+"' order by idFac desc");
+            Query consulta = ses.createQuery("SELECT a FROM Facturacion a where clientes.idCli='"+cl.getIdCli()+"' order by idFac desc");
+            List<Facturacion> lista = consulta.list();
+            if(lista.get(0).getPagada()!=Boolean.FALSE||lista==null)
+            {
+            i= Integer.parseInt(lista.get(0).getIdFac());
             i++;
-            fac.setIdFac(Double.toString(i));
-            fac.setClientes((Clientes)f.getAttribute("{idCli"));
+            fac.setIdFac(Integer.toString(i));
+            fac.setClientes(cl);
             fac.setTotFac(0.0);
             fac.setPagada(Boolean.FALSE);
+            
             Transaction tran = ses.beginTransaction();
             ses.save(fac);
             tran.commit();
             ses.close();
-            return 1;
+            return fac;
+            }
+            else
+            {
+                return lista.get(0);
+            }
+            
         } catch (Exception e) {
             ses.close();
-            return 0;
+            return null;
         }
     } 
     

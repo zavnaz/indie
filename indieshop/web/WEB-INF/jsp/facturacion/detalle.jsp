@@ -1,6 +1,6 @@
 <%-- 
-    Document   : editar
-    Created on : Dec 13, 2020, 11:57:25 PM
+    Document   : detalle
+    Created on : Dec 15, 2020, 1:22:48 PM
     Author     : mario
 --%>
 
@@ -43,10 +43,10 @@
                                     <th>Producto</th>
                                     <th>cantidad</th>
                                     <th>Total</th>
-                                     
+                                     <th>Ver</th>
                                 </tr>
                             </thead>
-                            <tbody class="table-dark table-inverse">
+                            <tbody>
                                 <c:forEach items="${lf}" var="pro">
                                     <tr>
                                         <td>${pro.idPfac}</td>
@@ -55,6 +55,12 @@
                                         <td>${pro.cantidadPfac}</td>
                                         <td>${pro.totPfac}</td>
                                         
+                                        
+                                        <td>
+                                            <a class="btn btn-primary"
+                                               href="<s:url value="/prodfactura/prfac/${pro.idPfac}"/>">
+                                                <span class="glyphicon glyphicon-edit"></span>Editar</a>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
@@ -70,6 +76,7 @@
 
     </body>
 </html>
+
 
 
 

@@ -21,6 +21,11 @@ public class ClientesModel {
       public int insertarClientes(Clientes clie) {
         Session ses = factory.openSession();
         try {
+            Query consulta = ses.createQuery("SELECT a FROM Clientes a order by idCli desc");
+            List<Clientes> lista = consulta.list();
+            int i= Integer.parseInt(lista.get(0).getIdCli());
+            i++;
+            clie.setIdCli(Integer.toString(i));
             Transaction tran = ses.beginTransaction();
             ses.save(clie);
             tran.commit();

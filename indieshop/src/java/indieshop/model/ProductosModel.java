@@ -24,6 +24,11 @@ public class ProductosModel {
         String a = pro.getNomPro();        
         pro.setImgPro(a);
         try {
+            Query consulta = ses.createQuery("SELECT a FROM Productos a order by idPro desc");
+            List<Productos> lista = consulta.list();
+            int i= Integer.parseInt(lista.get(0).getIdPro());
+            i++;
+            pro.setIdPro(Integer.toString(i));
             Transaction tran = ses.beginTransaction();
             ses.save(pro);
             tran.commit();

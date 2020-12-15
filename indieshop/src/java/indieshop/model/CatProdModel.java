@@ -23,7 +23,11 @@ public class CatProdModel {
      public int insertarCatProd(CategoriaProductos clie) {
         Session ses = factory.openSession();
         try { 
-            
+            Query consulta = ses.createQuery("SELECT a FROM CategoriaProductos a order by idCat desc");
+            List<CategoriaProductos> lista = consulta.list();
+            int i= Integer.parseInt(lista.get(0).getIdCat());
+            i++;
+            clie.setIdCat(Integer.toString(i));
             Transaction tran = ses.beginTransaction();
             ses.save(clie);
             tran.commit();

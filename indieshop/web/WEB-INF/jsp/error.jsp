@@ -15,7 +15,7 @@
         <h1>Error</h1>
         <h1>${us}</h1>
         <h1>${pa}</h1>
-        <h1>${idu.idUs}</h1>
+        <h1>${nuevo}</h1>
         
     </body>
 </html>

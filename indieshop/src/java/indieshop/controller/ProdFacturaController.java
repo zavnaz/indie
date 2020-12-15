@@ -7,6 +7,7 @@ package indieshop.controller;
 
 import indieshop.entities.ProductosFactura;
 import indieshop.model.ProdFacturaModel;
+import indieshop.model.FacturacionModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,11 +27,20 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class ProdFacturaController {
     
     ProdFacturaModel pfactura = new ProdFacturaModel();
-
+FacturacionModel factu= new FacturacionModel();
     
     @RequestMapping("prfac/{codigo}")
     public String listarPFactura(@PathVariable("codigo") String codigo, Model model, RedirectAttributes atributos) 
     {
+        model.addAttribute("tfac",factu.obtenerFactura(codigo));
+        model.addAttribute("lf", pfactura.listarProdFactura(codigo));
+        return "facturacion/editar";
+    }
+    
+    @RequestMapping("prfac2/{codigo}")
+    public String listarPFacturaCli(@PathVariable("codigo") String codigo, Model model, RedirectAttributes atributos) 
+    {
+        model.addAttribute("tfac",factu.obtenerFactura(codigo));
         model.addAttribute("lf", pfactura.listarProdFactura(codigo));
         return "facturacion/editar";
     }

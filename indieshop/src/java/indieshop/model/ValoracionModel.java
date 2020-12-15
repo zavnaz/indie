@@ -23,6 +23,11 @@ public class ValoracionModel {
      public int insertarValoracion(Valoracion val) {
         Session ses = factory.openSession();
         try {
+            Query consulta = ses.createQuery("SELECT a FROM ProductosFactura a order by idPfac desc");
+            List<Valoracion> lista = consulta.list();
+            int i= Integer.parseInt(lista.get(0).getIdVal());
+            i++;
+            val.setIdVal(Integer.toString(i));
             Transaction tran = ses.beginTransaction();
             ses.save(val);
             tran.commit();
