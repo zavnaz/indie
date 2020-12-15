@@ -26,14 +26,14 @@ public class FacturacionModel
     public Facturacion insertarFactura(Clientes cl) {
         
         Facturacion fac= new Facturacion();
-        int i=0;
+        int i;
         Session ses = factory.openSession();
         
         try {
             //Query con = ses.createQuery("SELECT a FROM Facturacion a where clientes.idCli='"+cl.getIdCli()+"' order by idFac desc");
             Query consulta = ses.createQuery("SELECT a FROM Facturacion a where clientes.idCli='"+cl.getIdCli()+"' order by idFac desc");
             List<Facturacion> lista = consulta.list();
-            if(lista.get(0).getPagada()!=Boolean.FALSE||lista==null)
+            if(lista.get(0).getPagada()==Boolean.TRUE)
             {
             i= Integer.parseInt(lista.get(0).getIdFac());
             i++;

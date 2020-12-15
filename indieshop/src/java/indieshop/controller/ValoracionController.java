@@ -43,6 +43,16 @@ public class ValoracionController {
        
         return "valoracion/listar";
     }
+    
+    @RequestMapping("catcli")
+    public String listarValoracioncli(Model model) {
+        model.addAttribute("listarValoracion", valoracionM.listarValoracion());
+        model.addAttribute("listarProveedor", proveedorM.listarProveedor());
+       model.addAttribute("listarUsuario", usuarioM.listarUsuarios());
+       model.addAttribute("listarCliente", clienteM.listarClientes());
+       
+        return "valoracion/listarcli";
+    }
 
     @RequestMapping(value = "crear", method = RequestMethod.GET)
     public String nuevoValoracion(Model model, HttpSession a) {
@@ -61,7 +71,7 @@ public class ValoracionController {
         usuario.setClientes((Clientes)scli.getAttribute("idCli"));
         if (valoracionM.insertarValoracion(usuario) > 0) {
             atributos.addFlashAttribute("exito", "usuario registrado exitosamente");
-            return "redirect:/valoracion/cat";
+            return "redirect:/valoracion/catcli";
         } else {
             model.addAttribute("listarValoracion", valoracionM.listarValoracion());
             model.addAttribute("listarProveedor", proveedorM.listarProveedor());
@@ -70,7 +80,7 @@ public class ValoracionController {
             
             
             model.addAttribute("usuarios", usuario);
-            return "usuarios/nuevo";
+            return "valoracion/listarcli";
 
         }
     }

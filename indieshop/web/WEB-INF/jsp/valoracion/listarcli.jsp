@@ -1,8 +1,9 @@
 <%-- 
-    Document   : listar
-    Created on : 12-13-2020, 05:46:58 PM
-    Author     : roco_
+    Document   : listarcli
+    Created on : Dec 15, 2020, 2:41:45 PM
+    Author     : mario
 --%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
@@ -32,11 +33,11 @@
     <body>
         <div class="container-fluid">
             <div class="tm-body">
-                <jsp:include page="/WEB-INF/jsp/menu_admin.jsp"/>
+                <jsp:include page="/WEB-INF/jsp/menu.jsp"/>
                 <div class="tm-main-content">    
                     <br>
                     <div class="container tm-site-header-container tm-site-header-col">
-                        
+                        <a  class="btn btn-dark" href="<s:url value="/valoracion/crear"/>">Nueva Valoracion</a>
                         <br><br>
                         <table class="table table-bordered" id="tabla">
                             <thead class="table-dark table-inverse">
@@ -46,7 +47,6 @@
                                     <th>Nombre Empresa</th>
                                      <th>Valoracion</th>
                                      <th>Comentarios</th>
-                                     <th>Operaciones</th>
                                      
                                 </tr>
                             </thead>
@@ -59,13 +59,6 @@
                                         <td>${cat.calVal}</td>
                                         <td>${cat.comVal}</td>
                                         
-                                        
-                                        <td>
-                                            
-                                            <a class="btn btn-danger" 
-                                               href="<s:url value="/valoracion/delete/${cat.idVal}"/>">
-                                                <span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-                                        </td>
                                     </tr>
                                 </c:forEach>
                             </tbody>

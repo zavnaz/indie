@@ -24,8 +24,11 @@ public class ProdFacturaModel {
      
     public int insertarProdFactura(Facturacion idf,Productos idp)//ProductosFactura fac
     {
+        
         ProductosFactura fac=new ProductosFactura();
         FacturacionModel mfac= new FacturacionModel();
+        //idf.setTotFac(idf.getTotFac()+idp.getPrecioPro());
+            //int n= mfac.modificarFactura(idf);
         Session ses = factory.openSession();
         try {
             Query consulta = ses.createQuery("SELECT a FROM ProductosFactura a order by idPfac desc");
@@ -37,12 +40,12 @@ public class ProdFacturaModel {
             fac.setProductos(idp);
             fac.setCantidadPfac(1);
             fac.setTotPfac(idp.getPrecioPro());
-            idf.setTotFac(idf.getTotFac()+idp.getPrecioPro());
-            int n= mfac.modificarFactura(idf);
+            
             Transaction tran = ses.beginTransaction();
             ses.save(fac);
             tran.commit();
             ses.close();
+            
             return 1;
         } catch (Exception e) {
             ses.close();

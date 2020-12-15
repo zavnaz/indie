@@ -37,6 +37,14 @@ FacturacionModel factu= new FacturacionModel();
         return "facturacion/editar";
     }
     
+    @RequestMapping("prfaccli/{codigo}")
+    public String listarPFacturacli(@PathVariable("codigo") String codigo, Model model, RedirectAttributes atributos) 
+    {
+        model.addAttribute("tfac",factu.obtenerFactura(codigo));
+        model.addAttribute("lf", pfactura.listarProdFactura(codigo));
+        return "facturacion/detalle";
+    }
+    
     @RequestMapping("prfac2/{codigo}")
     public String listarPFacturaCli(@PathVariable("codigo") String codigo, Model model, RedirectAttributes atributos) 
     {

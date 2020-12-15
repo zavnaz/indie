@@ -12,6 +12,7 @@ import indieshop.entities.ProductosFactura;
 import indieshop.model.ProdFacturaModel;
 import indieshop.model.CatProdModel;
 import indieshop.model.ProveedorModel;
+import indieshop.model.FacturacionModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -35,7 +36,7 @@ public class ProductosController {
     CatProdModel categoria= new CatProdModel();
     ProveedorModel proveedor= new ProveedorModel();
     ProdFacturaModel profac=new ProdFacturaModel();
-    
+    FacturacionModel ffac= new FacturacionModel();
     @RequestMapping("prod")
     public String listarProducto(Model model) {
         model.addAttribute("lp", producto.listarProductos());
@@ -48,6 +49,7 @@ public class ProductosController {
          model.addAttribute("listaCat", categoria.listarCatProd());
         model.addAttribute("listaProv", proveedor.listarProveedor());
          model.addAttribute("producto", new Productos());
+         
         return "productos/nuevo";
     }
     
@@ -115,7 +117,12 @@ public class ProductosController {
          public String Productofac(Productos prod, Model model, 
                  RedirectAttributes atributos,HttpSession ucli)
          {
-             
+             Facturacion fff=(Facturacion)ucli.getAttribute("idFac");
+             double tf=fff.getTotFac();
+             double tp=prod.getPrecioPro();
+             double nnn=tf+tp;
+             fff.setTotFac(nnn);
+             int nt= ffac.modificarFactura(fff);
              profac.insertarProdFactura((Facturacion)ucli.getAttribute("idFac"), prod);
              model.addAttribute("lp", producto.listarProductos());
              return "productos/listarcli";

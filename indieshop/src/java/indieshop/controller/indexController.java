@@ -50,11 +50,19 @@ public class indexController {
         return"indexcli";
     }
     
-      @RequestMapping("p")
+    @RequestMapping("inicioini")
+    public String inicioini (Model model, HttpSession ucli)
+    {
+        model.addAttribute("listaP", pro.listarProductos());
+        //ucli.setAttribute("uid", "1");
+        return"indexini";
+    }
+    
+      @RequestMapping("reg")
     public String pop (Model model, HttpSession ucli)
     {
         //ucli.setAttribute("uid", "1");
-        return"pop";
+        return"usuarios/crearr";
     }
     
     @RequestMapping("log")
@@ -86,19 +94,18 @@ public class indexController {
         if(u.size()>0)
         {
             ucli.setAttribute("nomUsua", u.get(0).getNomUs());
-            if(u.get(0).getTiposUsuarios().getIdTu().equals("2"))
-            {
-                
-              c=cli.ClientesID(u.get(0).getIdUs());
+            c=cli.ClientesID(u.get(0).getIdUs());
             ucli.setAttribute("idCli", c.get(0));
             ucli.setAttribute("idFac", fact.insertarFactura(c.get(0)));
             ucli.setAttribute("nicCli", u.get(0).getNicUs());
             ucli.setAttribute("", u.get(0).getIdUs());
+            if(u.get(0).getTiposUsuarios().getIdTu().equals("2"))
+            {
             return "indexcli";
             }
             else
             {
-                ucli.setAttribute("nomUsua", "");
+                //ucli.setAttribute("nomUsua", "");
             }
             
         return "index";

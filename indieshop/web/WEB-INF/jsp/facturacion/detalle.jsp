@@ -28,7 +28,7 @@
     <body>
         <div class="container-fluid">
             <div class="tm-body">
-                <jsp:include page="/WEB-INF/jsp/menu_admin.jsp"/>
+                <jsp:include page="/WEB-INF/jsp/menu.jsp"/>
                 <div class="tm-main-content">    
                     <br>
                     <div class="container tm-site-header-container tm-site-header-col">
@@ -46,7 +46,7 @@
                                      <th>Ver</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="table-dark table-inverse">
                                 <c:forEach items="${lf}" var="pro">
                                     <tr>
                                         <td>${pro.idPfac}</td>

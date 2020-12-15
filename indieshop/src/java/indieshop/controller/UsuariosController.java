@@ -6,6 +6,7 @@
 package indieshop.controller;
 
 import indieshop.entities.Clientes;
+import indieshop.entities.TiposUsuarios;
 import indieshop.entities.Usuarios;
 import indieshop.model.ClientesModel;
 import indieshop.model.TipoUsuarioModel;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author roco_
@@ -59,6 +60,32 @@ public class UsuariosController {
 
         }
     }
+    
+    @RequestMapping(value = "crearr", method = RequestMethod.GET)
+    public String nuevoUsuariosR(Model model) {
+        model.addAttribute("listarTiposUsuarios", tipoUsuarioModel.listarTiposUsuario());
+        model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
+        model.addAttribute("usuarios", new Usuarios());
+        return "usuarios/registro";
+    }
+
+    @RequestMapping(value = "crearr", method = RequestMethod.POST)
+    public String insertarUsuariosR(@ModelAttribute("clientes") Usuarios usuario, Model model, RedirectAttributes atributos,HttpSession ucli) {
+        usuario.setTiposUsuarios(new TiposUsuarios("2"));
+        
+        if (usuariosModel.insertarUsuarios(usuario) > 0) {
+            ucli.setAttribute("idnu",usuario );
+            atributos.addFlashAttribute("exito", "usuario registrado exitosamente");
+            return "redirect:/clientes/crearr";
+        } else {
+            model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
+             model.addAttribute("listarTiposUsuarios", tipoUsuarioModel.listarTiposUsuario());
+            model.addAttribute("usuarios", usuario);
+                       return "usuarios/registro";
+
+        }
+    }
+    
     @RequestMapping (value = "edit/{codigo}", method = RequestMethod.GET)
          public String obtenerUsuarios(@PathVariable("codigo") String codigo, Model model)
          {

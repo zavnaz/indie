@@ -6,6 +6,7 @@
 package indieshop.controller;
 
 import indieshop.entities.Clientes;
+import indieshop.entities.Usuarios;
 import indieshop.model.ClientesModel;
 import indieshop.model.TipoUsuarioModel;
 import indieshop.model.UsuariosModel;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author roco_
@@ -59,6 +60,30 @@ public class ClientesController {
 
         }
     }
+    
+    @RequestMapping(value = "crear", method = RequestMethod.GET)
+    public String nuevoClientesR(Model model) {
+        model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
+        model.addAttribute("clientes", new Clientes());
+        return "clientes/nuevo";
+    }
+
+    @RequestMapping(value = "crear", method = RequestMethod.POST)
+    public String insertarClientesR(@ModelAttribute("clientes") Clientes clie, Model model, RedirectAttributes atributos,
+    HttpSession ucli) {
+        clie.setUsuarios((Usuarios)ucli.getAttribute("idnu"));
+        if (clientesModel.insertarClientes(clie) > 0) {
+            atributos.addFlashAttribute("exito", "Cliente registrado exitosamente");
+            return "redirect:/iniciocli";
+        } else {
+            model.addAttribute("listarTiposUsuarios", tipoUsuarioModel.listarTiposUsuario());
+            model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
+            model.addAttribute("clientes", clie);
+                       return "indexcli";
+
+        }
+    }
+    
     @RequestMapping (value = "edit/{codigo}", method = RequestMethod.GET)
          public String obtenerCliente(@PathVariable("codigo") String codigo, Model model)
          {

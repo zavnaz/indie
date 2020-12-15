@@ -17,14 +17,12 @@
                     </section>
                     <nav class="tm-main-nav">
                         <ul class="tm-main-nav-ul">
-                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/facturacion/fac" 
+                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/prodfactura/prfaccli/${idFac.getIdFac()}" 
                                 class="tm-nav-item-link tm-button">Carrito <i class=" fa fa-shopping-cart fa-1x" ></i></a>
                             </li>
-                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/catprod/cat" class="tm-nav-item-link tm-button">Categoria de Productos</a>
+                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/iniciocli" class="tm-nav-item-link tm-button">Productos</a>
                             </li>
-                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/proveedor/prov" class="tm-nav-item-link tm-button">Proveedor</a>
-                            </li>
-                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/valoracion/cat" class="tm-nav-item-link tm-button">Valoracion</a>
+                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/valoracion/catcli" class="tm-nav-item-link tm-button">Valoracion</a>
                             </li>
                             
                         </ul>

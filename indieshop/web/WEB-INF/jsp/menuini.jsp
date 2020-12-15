@@ -1,3 +1,9 @@
+<%-- 
+    Document   : menuini
+    Created on : Dec 15, 2020, 4:12:35 PM
+    Author     : mario
+--%>
+
  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400"> <!-- Google web font "Open Sans", https://fonts.google.com/ -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/mason/font-awesome-4.7.0/css/font-awesome.min.css">         <!-- Font Awesome, http://fontawesome.io/ -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/mason/css/bootstrap.min.css">                               <!-- Bootstrap styles, https://getbootstrap.com/ -->
@@ -12,25 +18,15 @@
                             <a href="${pageContext.request.contextPath}/inicio"><i class=" fa fa-television custom" ></i></a>
                             <p class="tm-banner-subtitle">Los mejores equipos y bajos precios</p> 
                             <i class=" fa fa-shopping-cart fa-1x" ></i>
-                            <p>${nomUsua}</p>
+                            
                             
                         </div>                    
                     </section>
                     <nav class="tm-main-nav">
                         <ul class="tm-main-nav-ul">
-                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/productos/prod" class="tm-nav-item-link tm-button">Productos</a>
+                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/log" class="tm-nav-item-link tm-button">Entrar</a>
                             </li>
-                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/catprod/cat" class="tm-nav-item-link tm-button">Categoria de Productos</a>
-                            </li>
-                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/facturacion/fac" class="tm-nav-item-link tm-button">Facturacion</a>
-                            </li>
-                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/clientes/cat" class="tm-nav-item-link tm-button">Clientes</a>
-                            </li>
-                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/usuarios/cat" class="tm-nav-item-link tm-button">Usuarios</a>
-                            </li>
-                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/proveedor/prov" class="tm-nav-item-link tm-button">Proveedor</a>
-                            </li>
-                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/valoracion/cat" class="tm-nav-item-link tm-button">Valoracion</a>
+                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/reg" class="tm-nav-item-link tm-button">Registrar</a>
                             </li>
                             
                         </ul>

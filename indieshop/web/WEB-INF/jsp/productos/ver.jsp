@@ -32,7 +32,7 @@
     <body>
        <div class="container-fluid">
             <div class="tm-body">
-                <jsp:include page="/WEB-INF/jsp/menu_admin.jsp"/>
+                <jsp:include page="/WEB-INF/jsp/menu.jsp"/>
                 <div class="tm-main-content">                    
                     <div class="container tm-site-header-container tm-site-header-col">
                         <div class=" col-md-5">
