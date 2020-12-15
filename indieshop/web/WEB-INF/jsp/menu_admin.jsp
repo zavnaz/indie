@@ -17,7 +17,7 @@
                     </section>
                     <nav class="tm-main-nav">
                         <ul class="tm-main-nav-ul">
-                            <li class="tm-nav-item"><a href="inicio" class="tm-nav-item-link tm-button">Inicio</a>
+                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/inicio" class="tm-nav-item-link tm-button">Inicio</a>
                             </li>
                             <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/productos/prod" class="tm-nav-item-link tm-button">Productos</a>
                             </li>

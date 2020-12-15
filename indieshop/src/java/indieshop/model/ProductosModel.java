@@ -21,6 +21,8 @@ public class ProductosModel {
     SessionFactory factory = HibernateUtil.getSessionFactory();
       public int insertarProductos(Productos pro) {
         Session ses = factory.openSession();
+        String a = pro.getNomPro();        
+        pro.setImgPro(a);
         try {
             Transaction tran = ses.beginTransaction();
             ses.save(pro);

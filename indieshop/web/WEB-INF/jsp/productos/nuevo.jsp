@@ -89,7 +89,7 @@
                     <div class="form-group">
                         <label for="imgPro">Imagen</label>
                         <div class="input-group">
-                             <f:input path="imgPro" cssClass="form-control"/>
+                             <f:input type="file" path="imgPro" cssClass="form-control"/>
                             <span class="input-group-addon"><span class="glyphicon glyphiconasterisk"></span></span>
                         </div>
                     </div>

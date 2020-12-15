@@ -30,14 +30,30 @@ http://www.tooplate.com/view/2094-mason
                 
                 <div class="tm-main-content tm-gallery-container">                    
                     <div class="grid">                                                    
-                        <div class="grid-item"><img src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-23-01.jpg" alt="Image"></div>
-                        <div class="grid-item"><img src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-11-01.jpg" alt="Image"></div>
-                        <div class="grid-item"><img src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-12-01.jpg" alt="Image"></div>
-                        <div class="grid-item"><img src="${pageContext.request.contextPath}/assets/mason/img/elec/cel2.jpg" alt="Image"></div>
-                        <div class="grid-item"><img src="${pageContext.request.contextPath}/assets/mason/img/elec/lap1.jpg" alt="Image"></div>
-                        <div class="grid-item"><img src="${pageContext.request.contextPath}/assets/mason/img/elec/lap2.jpg" alt="Image"></div>
-                        <div class="grid-item"><img src="${pageContext.request.contextPath}/assets/mason/img/elec/lap3.jpg" alt="Image"></div>
-                        <div class="grid-item"><img src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-11-02.jpg" alt="Image"></div>                        
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-23-01.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-11-01.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-12-01.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/elec/cel2.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/elec/lap1.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/elec/lap2.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/elec/lap3.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-11-02.jpg" alt="Image"></div>                        
+                            <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-23-01.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-11-01.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-12-01.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/elec/cel2.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/elec/lap1.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/elec/lap2.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/elec/lap3.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-11-02.jpg" alt="Image"></div>    
+                            <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-23-01.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-11-01.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-12-01.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/elec/cel2.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/elec/lap1.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/elec/lap2.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/elec/lap3.jpg" alt="Image"></div>
+                        <div class="grid-item"><img class="tm-img" src="${pageContext.request.contextPath}/assets/mason/img/gallery-img-11-02.jpg" alt="Image"></div>    
                    
                     </div>                    
                 </div> <!-- tm-main-content -->
