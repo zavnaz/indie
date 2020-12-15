@@ -59,7 +59,7 @@
                                         <td>${clientes.corCli}</td>
                                         <td>
                                             <a class="btn btn-primary"
-                                               href="<s:url value="/valoracion/edit/${clientes.idCli}"/>">
+                                               href="<s:url value="/clientes/edit/${clientes.idCli}"/>">
                                                 <span class="glyphicon glyphicon-edit"></span>Editar</a>
                                             <a class="btn btn-danger" 
                                                href="<s:url value="/clientes/delete/${clientes.idCli}"/>">

@@ -80,7 +80,7 @@ public class ClientesModel {
     public List<Clientes> listarClientes() {
         Session ses = factory.openSession();
         try {
-            Query consulta = ses.createQuery("SELECT a FROM clientes a");
+            Query consulta = ses.createQuery("SELECT a FROM Clientes a");
             List<Clientes> lista = consulta.list();
             ses.close();
             return lista;

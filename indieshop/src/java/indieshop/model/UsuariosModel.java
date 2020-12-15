@@ -83,10 +83,24 @@ public class UsuariosModel {
     public List<Usuarios> listarUsuarios() {
         Session ses = factory.openSession();
         try {
-            Query consulta = ses.createQuery("SELECT a FROM usuarios a");
+            Query consulta = ses.createQuery("SELECT a FROM Usuarios a");
             List<Usuarios> lista = consulta.list();
             ses.close();
             return lista;
+        } catch (Exception e) {
+            ses.close();
+            return null;
+        }
+    
+}
+    
+    public Usuarios usuarioLogin(String us, String pa) {
+        Session ses = factory.openSession();
+        try {
+            Query consulta = ses.createQuery("SELECT a FROM Usuarios a where nicUs="+us+" AND passUs="+pa);
+            Usuarios u = (Usuarios) consulta;
+            ses.close();
+            return u;
         } catch (Exception e) {
             ses.close();
             return null;

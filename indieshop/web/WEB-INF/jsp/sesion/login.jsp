@@ -12,6 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1></h1>
+        <form action="validador" method="POST">
+            Usuario<input type="text" name="usu">
+            <br>
+            Pass<input type="password" name="pass">
+            <input type="submit" value="enviar">
+        </form>
     </body>
 </html>

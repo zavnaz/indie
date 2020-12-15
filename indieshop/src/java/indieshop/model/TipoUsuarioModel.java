@@ -22,7 +22,7 @@ public class TipoUsuarioModel {
     public List<TiposUsuarios> listarTiposUsuario() {
         Session ses = factory.openSession();
         try {
-            Query cat = ses.createQuery("SELECT cat FROM tipos_usuarios cat");
+            Query cat = ses.createQuery("SELECT cat FROM TiposUsuarios cat");
             List<TiposUsuarios> lista = cat.list();
             ses.close();
             return lista;

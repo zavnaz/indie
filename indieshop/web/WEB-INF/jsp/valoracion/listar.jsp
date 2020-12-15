@@ -36,7 +36,7 @@
                 <div class="tm-main-content">    
                     <br>
                     <div class="container tm-site-header-container tm-site-header-col">
-                        <a  class="btn btn-dark" href="<s:url value="/catprod/crear"/>">Nueva Valoracion</a>
+                        <a  class="btn btn-dark" href="<s:url value="/valoracion/crear"/>">Nueva Valoracion</a>
                         <br><br>
                         <table class="table table-bordered" id="tabla">
                             <thead class="table-dark table-inverse">
