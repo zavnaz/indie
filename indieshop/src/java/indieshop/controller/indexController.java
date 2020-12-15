@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.portlet.ModelAndView;
 import indieshop.model.UsuariosModel;
 import indieshop.entities.Usuarios;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.web.bind.annotation.RequestMethod;
 /**
  *
@@ -47,15 +49,20 @@ public class indexController {
     @RequestMapping(value="validador", method = RequestMethod.POST)
     public String getValidaLogin(HttpServletRequest req,HttpServletResponse res,Model model)
     {
+        List<Usuarios> u=new ArrayList<>();
         String usu=req.getParameter("usu");
         String pas=req.getParameter("pass");
         model.addAttribute("us", usu);
         model.addAttribute("pa", pas);
-        Usuarios u= usua.usuarioLogin(usu, pas);
-        model.addAttribute("idu", usua.usuarioLogin(usu, pas));
-        
+        u= usua.UsuarioLogin(usu, pas);
+        if(u.size()>0)
+        {
+        return "index";
+        }
+        else
+        {
                     return "error";
-
+        }
         
     }
 }

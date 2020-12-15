@@ -44,17 +44,17 @@ Contributor(s):
     <property name="hibernate.enable_lazy_load_no_trans">true</property>
     <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/indie_shop</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/indie_shop?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-
-    <mapping class="indieshop.entities.Facturacion"/>
-    <mapping class="indieshop.entities.Proveedores"/>
-    <mapping class="indieshop.entities.CategoriaProductos"/>
+    <property name="hibernate.connection.password">1234</property>
     <mapping class="indieshop.entities.Valoracion"/>
-    <mapping class="indieshop.entities.TiposUsuarios"/>
-    <mapping class="indieshop.entities.ProductosFactura"/>
-    <mapping class="indieshop.entities.Clientes"/>
-    <mapping class="indieshop.entities.Productos"/>
+    <mapping class="indieshop.entities.Proveedores"/>
+    <mapping class="indieshop.entities.Facturacion"/>
     <mapping class="indieshop.entities.Usuarios"/>
+    <mapping class="indieshop.entities.CategoriaProductos"/>
+    <mapping class="indieshop.entities.ProductosFactura"/>
+    <mapping class="indieshop.entities.Productos"/>
+    <mapping class="indieshop.entities.TiposUsuarios"/>
+    <mapping class="indieshop.entities.Clientes"/>
   </session-factory>
 </hibernate-configuration>
