@@ -96,5 +96,13 @@ public class ProductosController {
              }
              return "redirect:/productos/prod";
          }
+         
+         @RequestMapping (value = "verpro/{codigo}", method = RequestMethod.GET)
+         public String verProducto(@PathVariable("codigo") String codigo, Model model)
+         {
+             model.addAttribute("producto", producto.obtenerProductos(codigo));
+             
+             return "productos/ver";
+         }
     
 }

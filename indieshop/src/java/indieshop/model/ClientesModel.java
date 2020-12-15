@@ -90,4 +90,17 @@ public class ClientesModel {
         }
     }
     
+    public List<Clientes> ClientesID(String id) {
+        Session ses = factory.openSession();
+        try {
+            Query consulta = ses.createQuery("SELECT a FROM Clientes a where usuarios.idUs="+id);
+            List<Clientes> lista = consulta.list();
+            ses.close();
+            return lista;
+        } catch (Exception e) {
+            ses.close();
+            return null;
+        }
+    }
+    
 }

@@ -51,7 +51,7 @@
                                     <th>Operaciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="table-dark table-inverse">
                                 <c:forEach items="${listarUsuarios}" var="usuarios">
                                     <tr>
                                         <td>${usuarios.idUs}</td>

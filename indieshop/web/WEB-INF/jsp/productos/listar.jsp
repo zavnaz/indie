@@ -48,7 +48,7 @@
                                      <th>Operaciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="table-dark table-inverse">
                                 <c:forEach items="${lp}" var="pro">
                                     <tr>
                                         <td>${pro.idPro}</td>

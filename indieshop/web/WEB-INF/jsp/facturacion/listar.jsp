@@ -43,7 +43,7 @@
                                      <th>Ver</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="table-dark table-inverse">
                                 <c:forEach items="${lf}" var="pro">
                                     <tr>
                                         <td>${pro.idFac}</td>

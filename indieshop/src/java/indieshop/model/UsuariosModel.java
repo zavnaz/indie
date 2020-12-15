@@ -9,6 +9,7 @@ package indieshop.model;
 import indieshop.entities.Clientes;
 import indieshop.entities.Usuarios;
 import java.util.List;
+import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,6 +26,13 @@ public class UsuariosModel {
      public int insertarUsuarios(Usuarios usu) {
         Session ses = factory.openSession();
         try {
+            Query consulta;// = ses.createQuery("SELECT MAX(idUs) FROM Usuarios a");
+            //Usuarios nu= (Usuarios) consulta;
+            //int i=Integer.parseInt(consulta);
+            //i++;
+           
+            //CriteriaQuery<Number>=consulta.cre
+            //.setIdUs(Integer.toString(i));
             Transaction tran = ses.beginTransaction();
             ses.save(usu);
             tran.commit();

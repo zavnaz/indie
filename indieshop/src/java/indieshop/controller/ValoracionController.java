@@ -5,6 +5,7 @@
  */
 package indieshop.controller;
 
+import indieshop.entities.Clientes;
 import indieshop.entities.Valoracion;
 import indieshop.model.ClientesModel;
 import indieshop.model.ProveedorModel;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author roco_
@@ -55,8 +56,9 @@ public class ValoracionController {
     }
 
     @RequestMapping(value = "crear", method = RequestMethod.POST)
-    public String insertarValoracion(@ModelAttribute("valoracion") Valoracion usuario, Model model, RedirectAttributes atributos) {
-        
+    public String insertarValoracion(@ModelAttribute("valoracion") Valoracion usuario, Model model,
+            RedirectAttributes atributos, HttpSession scli) {
+        usuario.setClientes((Clientes)scli.getAttribute("idCli"));
         if (valoracionM.insertarValoracion(usuario) > 0) {
             atributos.addFlashAttribute("exito", "usuario registrado exitosamente");
             return "redirect:/valoracion/cat";

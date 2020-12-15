@@ -5,7 +5,6 @@
  */
 package indieshop.controller;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
@@ -15,6 +14,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.portlet.ModelAndView;
 import indieshop.model.UsuariosModel;
 import indieshop.entities.Usuarios;
+import indieshop.entities.Clientes;
+import indieshop.model.ClientesModel;
+import indieshop.entities.Productos;
+import indieshop.model.ProductosModel;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,11 +28,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class indexController {
     UsuariosModel usua= new UsuariosModel();
+    ClientesModel cli= new ClientesModel();
+    ProductosModel pro= new ProductosModel();
+    
        @RequestMapping("inicio")
     public String inicio (Model model, HttpSession ucli)
     {
-        ucli.setAttribute("uid", "1");
+        model.addAttribute("listaP", pro.listarProductos());
+        //ucli.setAttribute("uid", "1");
         return"index";
+    }
+    
+    @RequestMapping("iniciocli")
+    public String iniciocliente (Model model, HttpSession ucli)
+    {
+        model.addAttribute("listaP", pro.listarProductos());
+        //ucli.setAttribute("uid", "1");
+        return"indexcli";
+    }
+    
+      @RequestMapping("p")
+    public String pop (Model model, HttpSession ucli)
+    {
+        //ucli.setAttribute("uid", "1");
+        return"pop";
     }
     
     @RequestMapping("log")
@@ -47,9 +69,11 @@ public class indexController {
     }
     
     @RequestMapping(value="validador", method = RequestMethod.POST)
-    public String getValidaLogin(HttpServletRequest req,HttpServletResponse res,Model model)
+    public String getValidaLogin(HttpServletRequest req,HttpServletResponse res,Model model,
+            HttpSession ucli)
     {
         List<Usuarios> u=new ArrayList<>();
+        List<Clientes> c=new ArrayList<>();
         String usu=req.getParameter("usu");
         String pas=req.getParameter("pass");
         model.addAttribute("us", usu);
@@ -57,6 +81,20 @@ public class indexController {
         u= usua.UsuarioLogin(usu, pas);
         if(u.size()>0)
         {
+            ucli.setAttribute("nomUsua", u.get(0).getNomUs());
+            if(u.get(0).getTiposUsuarios().getIdTu().equals("1"))
+            {
+                
+              c=cli.ClientesID(u.get(0).getIdUs());
+            ucli.setAttribute("idCli", c.get(0));
+            ucli.setAttribute("nicCli", u.get(0).getNicUs());
+            ucli.setAttribute("", u.get(0).getIdUs());
+            }
+            else
+            {
+                ucli.setAttribute("nomUsua", "");
+            }
+            
         return "index";
         }
         else

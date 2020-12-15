@@ -28,7 +28,7 @@ http://www.tooplate.com/view/2094-mason
         <div class="container-fluid">
             
             <div class="tm-body">
-          <jsp:include page="/WEB-INF/jsp/menu_admin.jsp"/>    
+          <jsp:include page="/WEB-INF/jsp/menu.jsp"/>    
                
                 
                 <div class="tm-main-content tm-gallery-container">                    

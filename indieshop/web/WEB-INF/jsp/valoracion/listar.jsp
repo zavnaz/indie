@@ -50,7 +50,7 @@
                                      
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="table-dark table-inverse">
                                 <c:forEach items="${listarValoracion}" var="cat">
                                     <tr>
                                         <td>${cat.idVal}</td>

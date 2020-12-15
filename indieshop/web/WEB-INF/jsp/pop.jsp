@@ -50,9 +50,9 @@ http://www.tooplate.com/view/2097-pop
                         
                         <div class="content">
                             
-                            <div class="grid">
+                            <div class="gridpop">
                                 
-                                <div class="grid__item" id="home-link">
+                                <div class="gridpop__item" id="home-link">
                                     <div class="product">
                                         <div class="tm-nav-link">
                                             <i class="fas fa-home fa-3x tm-nav-icon"></i>
@@ -82,11 +82,11 @@ http://www.tooplate.com/view/2097-pop
                                     </div>
                                 </div>
 
-                                <div class="grid__item" id="team-link">
+                                <div class="gridpop__item" id="team-link">
                                     <div class="product">
                                         <div class="tm-nav-link">
-                                            <i class="fas fa-users fa-3x tm-nav-icon"></i>
-                                            <span class="tm-nav-text">Our Team</span>
+                                            <a href="${pageContext.request.contextPath}/productos/prod"><i class="fas fa-users fa-3x tm-nav-icon"></i></a>
+                                            <span class="tm-nav-text">TV</span>
                                             <div class="product__bg"></div>            
                                         </div>                                     
                                         <div class="product__description">
@@ -108,11 +108,12 @@ http://www.tooplate.com/view/2097-pop
                                                     </div>
                                                 </div>
                                             </div>
+                                                    
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="grid__item">
+                                <div class="gridpop__item">
                                     <div class="product">
                                         <div class="tm-nav-link">
                                             <i class="fas fa-handshake fa-3x tm-nav-icon"></i>
@@ -150,7 +151,7 @@ http://www.tooplate.com/view/2097-pop
                                     </div>
                                 </div>
 
-                                <div class="grid__item">
+                                <div class="gridpop__item">
                                     <div class="product">
                                         <div class="tm-nav-link">
                                             <i class="fas fa-comments fa-3x tm-nav-icon"></i>

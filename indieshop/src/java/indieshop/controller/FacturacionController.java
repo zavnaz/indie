@@ -42,9 +42,9 @@ public class FacturacionController {
         return "facturacion/nuevo";
     }
     
-    @RequestMapping(value = "crear", method = RequestMethod.POST)
+    /*@RequestMapping(value = "crear", method = RequestMethod.POST)
     public String insertarFactura(@ModelAttribute("factura") Facturacion fac, Model model, RedirectAttributes atributos) {
-        if (factura.insertarFactura(fac) > 0) {
+        if (factura.insertarFactura() > 0) {
             atributos.addFlashAttribute("exito", "Factura registrado exitosamente");
             return "redirect:/facturacion/fac";
         } else {
@@ -53,7 +53,7 @@ public class FacturacionController {
                        return "facturacion/nuevo";
 
         }
-    }
+    }*/
     
     @RequestMapping (value = "edit/{codigo}", method = RequestMethod.GET)
          public String obtenerFactura(@PathVariable("codigo") String codigo, Model model)

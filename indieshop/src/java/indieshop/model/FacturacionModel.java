@@ -11,6 +11,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import javax.servlet.http.HttpSession;
+import indieshop.entities.Clientes;
 
 /**
  *
@@ -21,9 +23,19 @@ public class FacturacionModel
      
     SessionFactory factory = HibernateUtil.getSessionFactory();
      
-    public int insertarFactura(Facturacion fac) {
+    public int insertarFactura(HttpSession f) {
+        
+        Facturacion fac= new Facturacion();
+        
         Session ses = factory.openSession();
         try {
+            Query consulta = ses.createQuery("SELECT FROM Facturacion order by idFac desc limit 1");
+            double i=Double.parseDouble(consulta.toString());
+            i++;
+            fac.setIdFac(Double.toString(i));
+            fac.setClientes((Clientes)f.getAttribute("{idCli"));
+            fac.setTotFac(0.0);
+            fac.setPagada(Boolean.FALSE);
             Transaction tran = ses.beginTransaction();
             ses.save(fac);
             tran.commit();
