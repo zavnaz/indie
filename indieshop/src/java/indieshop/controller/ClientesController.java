@@ -61,14 +61,14 @@ public class ClientesController {
         }
     }
     
-    @RequestMapping(value = "crear", method = RequestMethod.GET)
+    @RequestMapping(value = "crearr", method = RequestMethod.GET)
     public String nuevoClientesR(Model model) {
         model.addAttribute("listarUsuarios", usuariosModel.listarUsuarios());
         model.addAttribute("clientes", new Clientes());
         return "clientes/nuevo";
     }
 
-    @RequestMapping(value = "crear", method = RequestMethod.POST)
+    @RequestMapping(value = "crearr", method = RequestMethod.POST)
     public String insertarClientesR(@ModelAttribute("clientes") Clientes clie, Model model, RedirectAttributes atributos,
     HttpSession ucli) {
         clie.setUsuarios((Usuarios)ucli.getAttribute("idnu"));

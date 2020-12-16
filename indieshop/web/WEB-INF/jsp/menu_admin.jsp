@@ -11,7 +11,6 @@
                             <h1 class="tm-banner-title">Indie Shop</h1>
                             <a href="${pageContext.request.contextPath}/inicio"><i class=" fa fa-television custom" ></i></a>
                             <p class="tm-banner-subtitle">Los mejores equipos y bajos precios</p> 
-                            <i class=" fa fa-shopping-cart fa-1x" ></i>
                             <p>${nomUsua}</p>
                             
                         </div>                    

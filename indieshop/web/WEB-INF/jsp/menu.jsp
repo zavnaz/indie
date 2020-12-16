@@ -17,6 +17,9 @@
                     </section>
                     <nav class="tm-main-nav">
                         <ul class="tm-main-nav-ul">
+                            <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/log" 
+                                class="tm-nav-item-link tm-button">Entrar</a>
+                            </li>
                             <li class="tm-nav-item"><a href="${pageContext.request.contextPath}/prodfactura/prfaccli/${idFac.getIdFac()}" 
                                 class="tm-nav-item-link tm-button">Carrito <i class=" fa fa-shopping-cart fa-1x" ></i></a>
                             </li>

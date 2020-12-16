@@ -42,7 +42,7 @@ http://www.tooplate.com/view/2094-mason
                         <c:forEach items="${listaP}" var="pro">
                             <div class="grid-item">
                                 <a href="<s:url value="/productos/verpro/${pro.idPro}"/>">
-                                <img class="tm-img" src="${pageContext.request.contextPath}/assets/img/${pro.imgPro}.jpg" alt="Image">
+                                <img class="tm-img" src="${pageContext.request.contextPath}/assets/img/${pro.imgPro}.jpeg" alt="Image">
                                 </a>
                             </div>
                         </c:forEach>

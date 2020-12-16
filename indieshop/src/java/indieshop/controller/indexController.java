@@ -99,6 +99,7 @@ public class indexController {
             ucli.setAttribute("idFac", fact.insertarFactura(c.get(0)));
             ucli.setAttribute("nicCli", u.get(0).getNicUs());
             ucli.setAttribute("", u.get(0).getIdUs());
+            ucli.setAttribute("login", "si");
             if(u.get(0).getTiposUsuarios().getIdTu().equals("2"))
             {
             return "indexcli";

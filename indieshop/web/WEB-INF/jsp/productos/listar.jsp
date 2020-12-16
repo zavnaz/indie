@@ -58,7 +58,7 @@
                                         <td>${pro.precioPro}</td>
                                         <td>${pro.exiPro}</td>
                                        
-                                        <td><img class="tm-img" src="${pageContext.request.contextPath}/assets/img/${pro.imgPro}.jpg" alt="Image"></td>
+                                        <td><img class="tm-img" src="${pageContext.request.contextPath}/assets/img/${pro.imgPro}.jpeg" alt="Image"></td>
                                         
                                         <td>
                                             <a class="btn btn-primary"

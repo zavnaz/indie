@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import javax.servlet.http.HttpSession;
+    
 
 /**
  *
@@ -38,11 +40,19 @@ FacturacionModel factu= new FacturacionModel();
     }
     
     @RequestMapping("prfaccli/{codigo}")
-    public String listarPFacturacli(@PathVariable("codigo") String codigo, Model model, RedirectAttributes atributos) 
+    public String listarPFacturacli(@PathVariable("codigo") String codigo, Model model, 
+            RedirectAttributes atributos, HttpSession ucli) 
     {
+        if(ucli.getAttribute("login").toString().equals("si"))
+        {
         model.addAttribute("tfac",factu.obtenerFactura(codigo));
         model.addAttribute("lf", pfactura.listarProdFactura(codigo));
         return "facturacion/detalle";
+        }
+        else
+        {
+        return "";    
+        }
     }
     
     @RequestMapping("prfac2/{codigo}")
